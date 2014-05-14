@@ -6,7 +6,8 @@ public class B {
 
 		System.out.println("abc");
 		System.out.println("master: 2");
-		System.out.println("master: 4");
+		//System.out.println("master: 4");
+		
 	}
 
 }
