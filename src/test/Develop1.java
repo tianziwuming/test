@@ -8,6 +8,8 @@ public class Develop1 {
 		System.out.println("dev1: 2");
 		System.out.println("master: 3");
 		//System.out.println("dev2: 1");
+		System.out.println("dev3: 1");
+		System.out.println("dev4: 1");
 	}
 	
 
