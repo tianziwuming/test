@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<classPathEntry
+		location="C:\Users\thankpad-a57\.m2\repository\com\oracle\ojdbc6\11.1.0.7.0\ojdbc6-11.1.0.7.0.jar" />
+	<context id="context1">
+		<!-- pagination plugin -->
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin> 
+		<commentGenerator>
+			<!-- 不生成注解信息 -->
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@10.168.5.55:1356:lashoudw" userId="BI_USER_VIEW"
+			password="BiViEw20140320sURe" />
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="test.oracle.domain"
+			targetProject="test" />
+		<sqlMapGenerator targetPackage="test.oracle.mapper"
+			targetProject="test" />
+		<javaClientGenerator targetPackage="test.oracle.mapper"
+			targetProject="test" type="XMLMAPPER" />
+		<table schema="bi_user" tableName="view_forvsp_negativedata" domainObjectName="ViewForvspNegativeData"/>
+	</context>
+</generatorConfiguration>

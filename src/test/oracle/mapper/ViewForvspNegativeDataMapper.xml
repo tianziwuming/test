@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="test.oracle.mapper.ViewForvspNegativeDataMapper" >
+  <resultMap id="BaseResultMap" type="test.oracle.domain.ViewForvspNegativeData" >
+    <result column="TIME_KEY" property="timeKey" jdbcType="DECIMAL" />
+    <result column="DISTRICT_NAME" property="districtName" jdbcType="VARCHAR" />
+    <result column="CITY_NAME" property="cityName" jdbcType="VARCHAR" />
+    <result column="TRADE_NO" property="tradeNo" jdbcType="VARCHAR" />
+    <result column="GOODS_ID" property="goodsId" jdbcType="DECIMAL" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="SP_NAME" property="spName" jdbcType="VARCHAR" />
+    <result column="PRICE" property="price" jdbcType="DECIMAL" />
+    <result column="COST_PIRCE" property="costPirce" jdbcType="DECIMAL" />
+    <result column="GROSS_PROFIT" property="grossProfit" jdbcType="DECIMAL" />
+    <result column="AMOUNT" property="amount" jdbcType="DECIMAL" />
+    <result column="SALE" property="sale" jdbcType="DECIMAL" />
+    <result column="PAYED" property="payed" jdbcType="DECIMAL" />
+    <result column="DISCOUNT" property="discount" jdbcType="DECIMAL" />
+    <result column="EPURSE_PAYED" property="epursePayed" jdbcType="DECIMAL" />
+    <result column="COST_SALES" property="costSales" jdbcType="DECIMAL" />
+    <result column="GROSS_SALES" property="grossSales" jdbcType="DECIMAL" />
+  </resultMap>
+  
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+ 
+  <sql id="Base_Column_List" >
+    TIME_KEY, DISTRICT_NAME, CITY_NAME, TRADE_NO, GOODS_ID, TITLE, SP_NAME, PRICE, COST_PIRCE, 
+    GROSS_PROFIT, AMOUNT, SALE, PAYED, DISCOUNT, EPURSE_PAYED, COST_SALES, GROSS_SALES
+  </sql>
+  
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="test.oracle.domain.ViewForvspNegativeDataExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from BI_USER.VIEW_FORVSP_NEGATIVEDATA
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>  
+   
+  <select id="countByExample" parameterType="test.oracle.domain.ViewForvspNegativeDataExample" resultType="java.lang.Integer" >
+    select count(*) from BI_USER.VIEW_FORVSP_NEGATIVEDATA
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+</mapper>
