@@ -5,7 +5,6 @@ import java.util.List;
 import test.oracle.domain.ViewForvspNegativeData;
 import test.oracle.domain.ViewForvspNegativeDataExample;
 
-@Service
 public class ViewForvspNegativeDataServiceImpl implements
 		ViewForvspNegativeDataService {
 
